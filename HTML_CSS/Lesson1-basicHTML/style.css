@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    justify-content: center;
+}
+
+.div-class{
+    margin: 50px;
+}
+
+
+#my-name{
+    color: blue;
+}
+
+img{
+    width: 50%;
+    height: 50%;
+}
+
+#third-div{
+    height: 600px;
+    width: 400px;
+    padding: 50px;
+    border: 5px solid black;
+    background: #eb4034;
+}
+
+#fav-food{
+    font-size: 18px;
+    margin: 50px;
+}
