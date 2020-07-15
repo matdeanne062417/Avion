@@ -1,7 +1,7 @@
 //In these first 6 questions, replace `null` with the answer
 
 //create a string variable, it can contain anything
-const newString = "anything" ;
+const newString = "hello" ;
 
 //create a number variable, it an be any number
 const newNum = 20;
@@ -67,7 +67,7 @@ function areEqual(x, y) {
    }
 };
 
-// const areEqual = (x, y) => x === y ?  true :  false
+const areEqual = (x, y) => x === y ?  true :  false
 
 function areSameLength(str1, str2) {
   // return true if the two strings have the same length
@@ -79,7 +79,7 @@ function areSameLength(str1, str2) {
     }
 };
 
-// const areSameLength = (str1, str2) => str1.length === str2.length ? true : false;
+const areSameLength = (str1, str2) => str1.length === str2.length ? true : false;
 
 function lessThanNinety(num) {
   // return true if the function argument: num , is less than ninety
@@ -91,7 +91,7 @@ function lessThanNinety(num) {
   }
 };
 
-// const lessThanNinety = (num) => num < 90 ? true : false;
+const lessThanNinety = (num) => num < 90 ? true : false;
 
 function greaterThanFifty(num) {
   // return true if num is greater than fifty
@@ -103,7 +103,7 @@ function greaterThanFifty(num) {
   }
 }
 
-// const greaterThanFifty = (num) => num > 50 ? true : false; 
+const greaterThanFifty = (num) => num > 50 ? true : false; 
 
 function getRemainder(x, y) {
   // return the remainder from dividing x by y
@@ -122,7 +122,7 @@ function isEven(num) {
   }
 }
 
-// const isEven = (num) => num % 2 === 0 ? true : false;
+const isEven = (num) => num % 2 === 0 ? true : false;
 
 function isOdd(num) {
   // return true if num is odd
@@ -133,16 +133,16 @@ function isOdd(num) {
         return true;
     }
 }
-// const isOdd = (num) => num % 2 === 0 ? false : true;
+const isOdd = (num) => num % 2 === 0 ? false : true;
 
 
 function square(num) {
   // square num and return the new value
   // hint: NOT square root!
-  return num*=num
+  return num*= num
 }
 
-// const square = (num) => num*num;
+const square = (num) => num*num;
 
 function cube(num) {
   // cube num and return the new value
@@ -150,13 +150,13 @@ function cube(num) {
     return num*= num * num;
 }
 
-// function cube(num) {
-//     // cube num and return the new value
-//     // code here
-//       return Math.pow(3, num);
-// }
+function cube(num) {
+    // cube num and return the new value
+    // code here
+      return Math.pow(3, num);
+}
 
-//  const cube = (num) => Math.pow(3, num)
+ const cube = (num) => Math.pow(3, num)
   
 
 function raiseToPower(num, exponent) {
@@ -204,7 +204,7 @@ const  roundUp= (num, dec) => {
 function addExclamationPoint(str) {
   // add an exclamation point to the end of str and return the new string
   // 'hello world' -> 'hello world!'
-    return `${str}!`
+    return  str + " " + "!"
 }
 
 function combineNames(firstName, lastName) {
@@ -221,7 +221,7 @@ function getGreeting(name) {
 
     if(hours < 12){
         return `Good Morning ${name}` 
-    } else if( hours >= 12){
+    } else if( hours >= 12 ){
         return `Good Afternoon ${name}` 
     } else if( hours >= 18){
         return `Good Evening ${name}` 
