@@ -82,7 +82,11 @@ function isInteger(num) {
   // -10 -> true
   // otherwise return false
   // hint: you can solve this using Math.floor
-  return Number.isInteger(num)
+  if( num % 1 === 0) {
+    return true;
+  } else {
+     return false
+  }
 }
 
 // const isInteger = (num) =>  Number.isInteger(num);
@@ -113,8 +117,6 @@ function isPrime(num) {
     if(num % i === 0) return false;
   return num > 1;
 }
-
-
 
 // Do not modify code below this line.
 // --------------------------------
