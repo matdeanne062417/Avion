@@ -17,6 +17,7 @@ function returnLast(arr) {
 function getArrayLength(arr) {
   // return the length of the array
   return `The length of the array is ${arr.length}`
+
 }
 
 // const getArrayLength = (arr) =>  `The length of the array is ${arr.length}`
@@ -26,7 +27,7 @@ function incrementByOne(arr) {
   // increase each integer by one
   // return the array
   arr.forEach(element => {
-    return  element + 1;  
+    console.log(element + 1)
   });
 }
 
@@ -124,6 +125,7 @@ function largestNumber(numbers) {
   // return the largest integer
    let temp = 0;
   numbers.forEach( el => {
+    
       if( el > temp){
         temp = el;
       }

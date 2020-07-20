@@ -25,40 +25,43 @@ function makeCat(name, age) {
 //   }
 //   return cat;
 //}
+let obj = {}
 
 function addProperty(object, property) {
   // add the property to the object with a value of null
   // return the object
   // note: the property name is NOT 'property'.  The name is the value of the argument called property (a string)
- let obj = {
-   property,
- }
+  object.props = property;
+  return object
+}
 
-  return obj; 
+let person = {
+  name: 'john doe',
+  displayName: function() {
+      return ` my name is ${this.name}`
+  }
 }
 
 function invokeMethod(object, method) {
   // method is a string that contains the name of a method on the object
   // invoke this method
   // nothing needs to be returned
-  let person = {
-      name: 'john doe',
-      displayName: () => {
-          return ` my name is ${this.name}`
-      }
+    let temp = method.bind(object)
+    return temp();
+}
+
+let mysteryNumberObject = {
+  mysteryNumber: 5,
+ displayProduct: function(){
+      return  this.mysteryNumber * 5;
   }
 }
 
-function multiplyMysteryNumberByFive(mysteryNumberObject) {
+let  multiplyMysteryNumberByFive = (mysteryNumberObject) => {
   // mysteryNumberObject has a property called mysteryNumber
   // multiply the mysteryNumber property by 5 and return the product
-  let mysteryNumberObject = {
-       mysteryNumber = 5,
-      displayProduct: () => {
-            return `${this.mysteryNumber * 5}`
-      }
-  }
-  return  mysteryNumberObject.displayProduct();
+  let obj = new Object(mysteryNumberObject)
+  return obj.displayProduct()
 }
 
 function deleteProperty(object, property) {
@@ -90,13 +93,15 @@ function newUser(name, email, password) {
     }
   return newObj;
 }
+let user = {
+  name: 'John Doe',
+  password: 'password123',
+  email: 'email@email.com'
+}
 
 function hasEmail(user) {
   // return true if the user has a value for the property 'email'
-  // otherwise return false
-  
-  
-  
+  // otherwise return false  
   return user.email ? true : false;
 }
 
@@ -107,54 +112,69 @@ function hasProperty(object, property) {
  return object.hasOwnProperty(property) 
 }
 
+let user = {
+  name: 'John Doe',
+  password: 'password123'
+}
+
 function verifyPassword(user, password) {
   // check to see if the provided password matches the password property on the user object
   // return true if they match
   // otherwise return false
   return user.password === password ? true : false;
+}
 
+let user = {
+  name: 'John Doe',
+  password: 'password123'
 }
 
 function updatePassword(user, newPassword) {
   // replace the existing password on the user object with the value of newPassword
   // return the object
-  return user.password = newPassword
+  user.password = newPassword
+  return user
 }
 
+let users = {
+  friends: ['FriendA','FriendB','FriendC'],
+}
 
-function addFriend( user,newFriend) {
+function addFriend(users, newFriend) {
   // user has a property called friends that is an array
   // add newFriend to the end of the friends array
   // return the user object
-  let user = {
-      friends: [],
-  }
-  user.friends.push(newFriend)
-  return user;
+  let obj = new Object(users)
+  obj.friends.push(newFriend)
+  return obj;
 }
+
+let users = [{
+            user: {
+                isPremium: false
+            }
+          },          {
+            user: {
+                isPremium: false
+            }
+          },          {
+            user: {
+                isPremium: false
+            }
+          }]
+   
 
 function setUsersToPremium(users) {
   // users is an array of user objects.
   // each user object has the property 'isPremium'
   // set each user's isPremium property to true
   // return the users array
-
-  let users = [{
-           user1: {
-             isPremium: false,
-           },
-           user2: {
-            isPremium: false,
-          },
-          user3: {
-           isPremium: false,
-         }
-         }]
-
-  for(let elem of users){
-        elem.isPremium === false ? console.log(elem) : console.log('hello')
+  for(let data of users){
+      if(data.user.isPremium === false){
+        data.user.isPremium = true 
+      }
   }
-
+  return users;
 }
 
 function sumUserPostLikes(user) {
@@ -172,6 +192,15 @@ function sumUserPostLikes(user) {
   return `sum: ${temp}`
 }
 
+
+
+let storeItem = {
+  itemName: 'Item',
+  expirationdate: 2020,
+  price: 20,
+  discountPercentage: .2,
+}
+
 function addCalculateDiscountPriceMethod(storeItem) {
   // add a method to the storeItem object called 
   //'calculateDiscountPrice'
@@ -184,13 +213,13 @@ function addCalculateDiscountPriceMethod(storeItem) {
   // price -> 20
   // discountPercentage -> .2
   // discountPrice = 20 - (20 * .2)
+  let obj = new Object(storeItem)
 
-
-  storeItem.calculateDiscountPrice = (price ,discountPercentage) => {
+  obj.calculateDiscountPrice = (price ,discountPercentage) => {
       let discountPrice = price - (price * discountPercentage)
-      return discountPrice;  
+      return discountPrice;
   }
-
+  return obj.calculateDiscountPrice(obj.price, obj.discountPercentage)
 }
 
 // Do not modify code below this line.
