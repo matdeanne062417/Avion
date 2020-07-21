@@ -108,30 +108,20 @@ var library = [
 // }]
 
 const dispLibObj = (obj) => {
-    let library = [ 
-        {
-            title:  'The Road Ahead',
-            author: 'Bill Gates',
-            libraryID: 1254
-        },
-        {
-            title: 'Walter Isaacson',
-            author: 'Steve Jobs',
-            libraryID: 4264
-        },
-        {
-            title: 'Mockingjay: The Final Book of The Hunger Games',
-            author: 'Suzanne Collins',
-            libraryID: 3245
-        }];
-    let arr = []
-        library.forEach(element => {
-                arr.push(element)
-        });
-
-        return arr; 
+    // let arr = []
+    let temp = 0;
+      for (let i = 0; i < obj.length; i++){
+            for (let j = i + 1; j < obj.length; j++) { 
+                 if (obj[i].libraryID > obj[j].libraryID){
+                        temp =  obj[i];
+                        obj[i] = obj[j];
+                        obj[j] = temp;
+                       
+                    }            
+        }
+    }
+    return obj;
 }
-
 
 // Write a JavaScript function to
 // print all the methods in an JavaScript object.
@@ -144,7 +134,7 @@ const dispAllObj  = () => {
     // TODO
     // ask if that is the prototype props
     var obj = { name: 'Harry', age: '25', sex: 'male'};
-    console.log(obj.prototype)
+    console.log(obj.__proto__)
 }
 
 // Write a JavaScript function to retrieve 
@@ -174,17 +164,22 @@ Student.prototype.displayName = function(){
 
 // Write a JavaScript function to convert an object
 // into a list of `[key, value]` pairs.
+var obj = { name: 'Harry', age: '25', sex: 'male'};
 
 const displJSobj = (obj) => {
-    let result = Object.keys(obj).map((key) => [Number(key), obj[key]]);
+    let result = Object.keys(obj).map((key) => [key, obj[key]]);
     return result;
 }
 
 // Write a JavaScript function to check whether 
 //an object contains given property.
 
-const chkObject = (obj) => {
+var obj = { name: 'Harry', age: '25', sex: 'male'};
+
+const chkObject = (obj, property) => {
     //TODO
     // modify obj.property to he obj given
-    return obj.property === "undefined" ? true : false
+    return  obj.hasOwnProperty(property)
 }
+
+
