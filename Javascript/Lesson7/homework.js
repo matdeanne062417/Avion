@@ -26,10 +26,11 @@ function sumArray(numbers, cb) {
 //   return temp;  
 // }
 
-let summation = (arr) => {
-  return arr.reduce((acc, next) => acc + next) 
-}
-
+// let summation = (arr) => {
+//   return total =  arr.reduce((acc, next) => {
+//      return acc + next
+//   }, 0) 
+//  }
 
 function forEach(arr, cb) {
   // iterate over arr and pass its values to cb one by one
