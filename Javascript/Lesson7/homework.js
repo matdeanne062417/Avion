@@ -1,5 +1,6 @@
 // Do not change any of the function names
 
+
 function invokeCallback(cb) {
   // invoke cb
   return cb();
@@ -17,12 +18,16 @@ function sumArray(numbers, cb) {
 
 // const sumArray = (numbers, cb) => cb(numbers);
 
-const  summation = (arr) => {
-  let temp = 0;
-  arr.forEach( elem => {
-      temp+=elem;
-  })
-  return temp;  
+// const  summation = (arr) => {
+//   let temp = 0;
+//   arr.forEach( elem => {
+//       temp+=elem;
+//   })
+//   return temp;  
+// }
+
+let summation = (arr) => {
+  return arr.reduce((acc, next) => acc + next) 
 }
 
 
