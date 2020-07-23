@@ -1,65 +1,46 @@
 // Do not change any of the function names
 
-function invokeCallback(cb) {
-  // invoke cb
-  return cb();
-}
 
-const displayStr = () => 'hello' 
-// const invokeCallback = (cb) => cb();
-
-function sumArray(numbers, cb) {
-  // sum up all of the integers in the numbers array
-  // pass the result to cb
-  // no return is necessary
-  return cb(numbers)
-}
-
-// const sumArray = (numbers, cb) => cb(numbers);
-
-const  summation = (arr) => {
-  let temp = 0;
-  arr.forEach( elem => {
-      temp+=elem;
-  })
-  return temp;  
+function counter(num) {
+  // Return a function that when invoked increments and returns a counter variable.
+  // Example: const newCounter = counter();
+  // newCounter(); // 1
+  // newCounter(); // 2
+  return () => {
+      return num++;
+  }
 }
 
 
-function forEach(arr, cb) {
-  // iterate over arr and pass its values to cb one by one
-  // hint: you will be invoking cb multiple times (once for each value in the array)
-  arr.forEach( elem => {
-      cb(elem)
-  })
+
+  // use closure to create a cache for the cb function
+  // the function that you return should accept a single argument and invoke cb with that argument
+  // when the function you return is invoked with an argument it should save that argument and its result
+  // when the function you return is called again with an argument that it has seen before it should not call cb
+  // but should instead directly returned the previous result
+  // example:
+  // cb -> function(x) { return x * x; }
+  // if the function you return is invoked with 5 it would pass 5 to cb(5) and return 25
+  // if the function you return is invoked again with 5 it will look on an object in the closure scope
+  // and return 25 directly and will not invoke cb again
+  function cacheFunction(cb) {
+    let arr = [];
+    return (num) => {
+          if(arr.includes(num)){
+            return num;
+          } else{
+            arr.push(num)
+            return cb(num)  
+          }
+  }
 }
 
-// const myForEach = (arr) => arr.forEach( elem => { cb(elem) }) 
-
-const displayArr = (val) => val;
-
-function map(arr, cb) {
-  // create a new array
-  // iterate over each value in arr, pass it to cb, then place the value returned from cb into the new arr
-  // the new array should be the same length as the array argument
-
-  return cb(arr)
-}
-
-// const map = (arr, cb) => cb(arr)
-
-const getNewArr = (arr) => {
-  return newArr = arr.map( elem => {
-      return elem;
-  }) 
-}
+const getProduct = (x) => x*=x;
 
 // Do not modify code below this line.
 // --------------------------------
 
 module.exports = {
-  invokeCallback,
-  sumArray,
-  forEach,
-  map,
+  counter,
+  cacheFunction,
 };

@@ -8,35 +8,34 @@ function createUserClass(username, name, email, password) {
   // 'Hello, my name is {{name}}'
   // {{name}} should be the name set on each instance
   // return the class
-
   this.username = username;
   this.name     = name;
   this.email    = email;
   this.password = password;
-
 }
+
 
 createUserClass.prototype.sayHi = function(){
-    return ` 'Hello, my name is ${name}`
+  return ` 'Hello, my name is ${name}`
 }
 
-function addPrototypeMethod(Constructor) {
-  // add a method to the constructor's prototype
-  // the method should be called 'sayHi' and should return the string 'Hello World!'
-}
+// function addPrototypeMethod(Constructor) {
+//   // add a method to the constructor's prototype
+//   // the method should be called 'sayHi' and should return the string 'Hello World!'
+// }
 
-function addReverseString(str) {
-  // add a method to the string constructor's prototype that returns a reversed copy of the string
-  // name this method reverse
-  // hint:
-  // you will need to use 'this' inside of reverse
-  this.str = str;
-}
+// function addReverseString(str) {
+//   // add a method to the string constructor's prototype that returns a reversed copy of the string
+//   // name this method reverse
+//   // hint:
+//   // you will need to use 'this' inside of reverse
+//   this.str = str;
+// }
 
-addReverseString.prototype.reverse = function(){
-  let len = this.str.length
+createUserClass.prototype.reverse = function(){
+  let len = this.name.length
   for(var i = len; i >= 0; i--){
-      console.log(str[i])
+      console.log(this.name[i])
   }
 }
 
