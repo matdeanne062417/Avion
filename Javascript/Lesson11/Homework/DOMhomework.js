@@ -1,4 +1,10 @@
 var toDoControllers = (function(){
+  /* 
+  STEP 2: Create a class called 'ToDo'.  The constructor should have one string parameter called description, the description of the toDo.
+          Add two properties to the class: 'description' which should be set equal to the description passed to the constructor, and 
+          'complete' which should be set to false. Hint: use the 'this' keyword in the constructor function.
+*/
+
       let ToDos = function(id, description){
         //TODO:
         //add isCompleted to check if task is complete
@@ -6,10 +12,14 @@ var toDoControllers = (function(){
           this.description = description;
 
       }
+      // STEP 0: Create an empty array called 'toDoItems'.
       let Data = {
               toDos: [],
       }
       return {
+        // STEP 4: This function, buildToDo, will have two parameters.  The first is an object of class ToDo and 
+        // the second is a numerical index.
+         
           addToDo: function(data){
               var newItem;
               //ID creation
@@ -26,19 +36,13 @@ var toDoControllers = (function(){
             return newItem;
           },
           deleteTodo: function(id){
-              let index;
-              let ids = Data.toDos.map((elem) => {
-                    return elem.id
-               })
-               index = ids.indexOf(ids)
-               console.log(index)
-               return   index ? Data.toDos.splice(index, 1) : 'Error no Id found'
+            const index = Data.toDos.findIndex(elem => elem.id === id)
+              // console.log(index)
+            Data.toDos.splice(index, 1)
+         
           },
           displayData: function(){
               return Data.toDos;
-          },
-          getItemId: function(){
-            return Data.toDos.id;
           }
       }
 })();
@@ -96,7 +100,7 @@ var mainController = (function(toDoCtrls, UICtrls){
 
       if(id){
           //delete from array
-          toDoCtrls.deleteTodo(id) 
+          toDoCtrls.deleteTodo(Number(id)) 
           //remove UI
           UICtrls.deleteList(taskId)
       }  
