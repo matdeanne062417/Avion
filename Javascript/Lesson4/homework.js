@@ -25,13 +25,12 @@ function makeCat(name, age) {
 //   }
 //   return cat;
 //}
-let obj = {}
 
 function addProperty(object, property) {
   // add the property to the object with a value of null
   // return the object
   // note: the property name is NOT 'property'.  The name is the value of the argument called property (a string)
-  object.props = property;
+  object.age = property;
   return object
 }
 
@@ -39,7 +38,7 @@ let person = {
   name: 'john doe',
   displayName: function() {
       return ` my name is ${this.name}`
-  }
+  },
 }
 
 function invokeMethod(object, method) {
@@ -109,7 +108,12 @@ function hasProperty(object, property) {
   // return true if the object has the value of the property argument
   // property is a string
   // otherwise return false
- return object.hasOwnProperty(property) 
+  if(object in property){
+    return true;
+  } else {
+    return false
+  }
+// return object.hasOwnProperty(property) 
 }
 
 let user = {
@@ -151,15 +155,18 @@ function addFriend(users, newFriend) {
 
 let users = [{
             user: {
-                isPremium: false
+                isPremium: false,
+                post: [23,12,31]
             }
           },          {
             user: {
-                isPremium: false
+                isPremium: false,
+                post: [23,12,31]
             }
           },          {
             user: {
-                isPremium: false
+                isPremium: false,
+                post: [23,12,31]
             }
           }]
    
@@ -177,6 +184,19 @@ function setUsersToPremium(users) {
   return users;
 }
 
+
+
+let users = {
+  posts: [{
+           likes: 21, 
+         },{
+           likes: 50, 
+         },
+          {
+           likes: 32, 
+         }]    
+  }
+
 function sumUserPostLikes(user) {
   // user has an array property called 'posts'
   // posts is an array of post objects
@@ -185,10 +205,11 @@ function sumUserPostLikes(user) {
   // return the sum
 
   let temp = 0;
-  user.posts.forEach(elem => {
-      temp += elem.likes
-  });
 
+  user.posts.forEach(elem => {
+      temp+=elem.likes;
+  })
+ 
   return `sum: ${temp}`
 }
 
