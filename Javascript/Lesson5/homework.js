@@ -39,6 +39,25 @@ createUserClass.prototype.reverse = function(){
   }
 }
 
+
+class User{
+  constructor(username, name , email, password){
+    this.username = username
+    this.name     = name;
+    this.email    = email;
+    this.password = password;
+  }
+  sayHi(){
+    return `Hi my name is ${this.name}`
+  }
+  reverseName(){
+    let len = this.name.length;
+    for(let i = len; i > 0;  i--){
+      console.log(this.name[i])
+    }
+  }
+}
+
 // Do not modify code below this line.
 // --------------------------------
 
