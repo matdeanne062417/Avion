@@ -52,9 +52,11 @@ var countLetters = function(string){
 var isPresent = function(string, target) {
     var len = string.toLowerCase().split('')
     return len.reduce(function(acc, next){
-      let temp = next
-      return acc, temp
-    }, [])
+          if(next === target){
+             acc = true;
+          }
+          return  acc;
+    }, false)
 }
 
 
@@ -75,15 +77,13 @@ var isPresent = function(string, target) {
 // ex. decode("584131398786538461382741 444521974525439455955 71415168525426614834414214 353238892594759181769 48955328774167683152 77672648114592331981342373 5136831421236 83269359618185726749 2554892676446686256 959958531366848121621517 4275965243664397923577 616142753591841179359 121266483532393851149467 17949678591875681")
 // => "secret-message"
 const decode = function(string, cb){
-  let len = string.split(' ')
-  return output = len.map( data => {
-        let arr = data.split('');
-        return  String.fromCharCode(cb(arr))
+  let arr1 = string.split(' ')
+  return output = arr1.map( data => {
+        let arr2 = data.split('');
+        return  String.fromCharCode(cb(arr2))
      });
 }
 
 const getSummation = arr => {
-      return  arr.reduce((acc , next) => {
-          return parseInt(acc) + parseInt(next)
-      }, 0)
+      return  arr.reduce((acc , next) =>  parseInt(acc) + parseInt(next))
 } 
