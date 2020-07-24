@@ -34,29 +34,31 @@ createUserClass.prototype.sayHi = function(){
 
 createUserClass.prototype.reverse = function(){
   let len = this.name.length
+  let newStr = ''
   for(var i = len; i >= 0; i--){
-      console.log(this.name[i])
+      newStr+=this.name[i]
   }
+  return newStr;
 }
 
 
-class User{
-  constructor(username, name , email, password){
-    this.username = username
-    this.name     = name;
-    this.email    = email;
-    this.password = password;
-  }
-  sayHi(){
-    return `Hi my name is ${this.name}`
-  }
-  reverseName(){
-    let len = this.name.length;
-    for(let i = len; i > 0;  i--){
-      console.log(this.name[i])
-    }
-  }
-}
+// class User{
+//   constructor(username, name , email, password){
+//     this.username = username
+//     this.name     = name;
+//     this.email    = email;
+//     this.password = password;
+//   }
+//   sayHi(){
+//     return `Hi my name is ${this.name}`
+//   }
+//   reverseName(){
+//     let len = this.name.length;
+//     for(let i = len; i > 0;  i--){
+//       console.log(this.name[i])
+//     }
+//   }
+// }
 
 // Do not modify code below this line.
 // --------------------------------
