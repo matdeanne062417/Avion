@@ -178,17 +178,28 @@ const getNewArr = (arr) => {
   
      // 8. Reduce Exercise
     // Sum up the instances of each of these
-    const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
-    let countNumCars = (arr) => {
-       let temp = 1
-        return arr.reduce( function(acc, next) {
-              if(next.includes('car')) {
-                acc[next] = temp++;
-              } 
-          return acc; 
-      }, {})
-    }
-  
+    const data = ['car', 'car', 
+                'truck', 'truck', 'bike', 'walk', 
+                'car', 'van', 'bike', 'walk', 'car',
+                'van', 'car', 'truck' ];
+    // let countNumCars = (arr) => {
+    //    let temp = 0;
+    //     return arr.reduce( function(acc, next, idx) {
+    //           if(next.includes(next)) {
+    //             acc[next] =0;;
+    //           } 
+    //       return acc; 
+    //   }, {})
+      
+
+    // }
+    let countNumInstance = (arr) => {
+       return arr.reduce( function(acc, cur) {
+             acc[cur] = (acc[cur] || 0) + 1;
+         return acc; 
+     }, {})
+   }
+ 
 
 
 // Do not modify code below this line.
