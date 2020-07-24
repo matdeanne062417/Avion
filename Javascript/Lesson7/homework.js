@@ -74,9 +74,10 @@ const getNewArr = (arr) => {
     // Array.prototype.filter()
     // 1. Filter the list of inventors for those who were born in the 1500's
     // Array.prototype.map()
-    let yearBorn = () => {
-      return newArr = inventors.map(item => {
-        if(item.year < 1600){
+    
+    let yearBorn = (arr) => {
+      return newArr = arr.map(item => {
+        if((item.year >= 1500) && (item.year < 1600)){
           return item;
          }
       }).filter((data)  => data != null);
@@ -85,11 +86,16 @@ const getNewArr = (arr) => {
 
     // 2. Give us an array of the inventors first and last names
     // Array.prototype.sort()
-    let sortName = (arr) => {clear()
+    let sortFirstName = (arr) => {clear()
       return newArr = arr.sort((a,b) => {
               return (a.first < b.first) ? -1 : 0                        
       }).map((names) => names.first)
    }
+   let sortLastName = (arr) => {clear()
+    return newArr = arr.sort((a,b) => {
+            return (a.last < b.last) ? -1 : 0                        
+    }).map((names) => names.last)
+ }
     // 3. Sort the inventors by birthdate, oldest to youngest
     let sortbirthdate = (arr) => {
       return newArr = arr.sort((a,b) => {
@@ -113,13 +119,26 @@ const getNewArr = (arr) => {
            let temp2 = b.passed - b.year;
            if(temp < temp2){
                return -1;
-           }
-               
+           }           
       }).reduce((acc, next) => {
               let data = next.passed - next.year;
               console.log(`First Name: ${next.first} YearsLive: ${data}`)
-      })
+      }, {})
    }
+
+
+    let groupByYearsLive = (arr, props) => {
+      return arr.reduce(function (acc, next) {
+            let key = next[props]
+            if (!acc[next]) {
+              acc[key] = []
+            }
+            let getAge = next.passed - next.year
+            acc[key].push(next.first, getAge )
+            return acc
+          }, {})
+      }
+    
     // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
     // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
    let Paris = [
@@ -182,20 +201,22 @@ const getNewArr = (arr) => {
                 'truck', 'truck', 'bike', 'walk', 
                 'car', 'van', 'bike', 'walk', 'car',
                 'van', 'car', 'truck' ];
-    // let countNumCars = (arr) => {
-    //    let temp = 0;
-    //     return arr.reduce( function(acc, next, idx) {
-    //           if(next.includes(next)) {
-    //             acc[next] =0;;
-    //           } 
-    //       return acc; 
-    //   }, {})
-      
+   
+        // let countNumInstance = (arr) => {
+        //   return arr.reduce(function(acc, curr){
+        //           acc[curr] = (acc[curr] || 0) +1
+        //           return acc;
+        //       },{})
+        // }
 
-    // }
     let countNumInstance = (arr) => {
        return arr.reduce( function(acc, cur) {
-             acc[cur] = (acc[cur] || 0) + 1;
+              if(cur in acc){
+                 acc[cur]++;
+              }else {
+                  acc[cur] =1;    
+              }
+            ;
          return acc; 
      }, {})
    }
