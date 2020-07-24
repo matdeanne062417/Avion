@@ -25,7 +25,8 @@ createUserClass.prototype.sayHi = function(){
 // }
 
 // function addReverseString(str) {
-//   // add a method to the string constructor's prototype that returns a reversed copy of the string
+//   // add a method to the string constructor's prototype that returns a
+// reversed copy of the string
 //   // name this method reverse
 //   // hint:
 //   // you will need to use 'this' inside of reverse
@@ -34,11 +35,11 @@ createUserClass.prototype.sayHi = function(){
 
 createUserClass.prototype.reverse = function(){
   let len = this.name.length
-  let newStr = ''
+  
   for(var i = len; i >= 0; i--){
-      newStr+=this.name[i]
+      console.log(name[i])
   }
-  return newStr;
+
 }
 
 
@@ -50,7 +51,7 @@ createUserClass.prototype.reverse = function(){
 //     this.password = password;
 //   }
 //   sayHi(){
-//     return `Hi my name is ${this.name}`
+//     return `Hi my name is  ${this.name} `
 //   }
 //   reverseName(){
 //     let len = this.name.length;
