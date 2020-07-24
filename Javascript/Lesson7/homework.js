@@ -4,28 +4,19 @@ const displayStr = () => 'hello'
 
 const invokeCallback = (cb) => cb();
 
-// function sumArray(numbers, cb) {
-//   // sum up all of the integers in the numbers array
-//   // pass the result to cb
-//   // no return is necessary
-//   return cb(numbers)
-// }
+
+// sum up all of the integers in the numbers array
+// pass the result to cb
+// no return is necessary
 
 const sumArray = (numbers, cb) => cb(numbers);
 
-const  summation = (arr) => {
-  let temp = 0;
-  arr.forEach( elem => {
-      temp+=elem;
-  })
-  return temp;  
-}
 
-// let summation = (arr) => {
-//   return total =  arr.reduce((acc, next) => {
-//      return acc + next
-//   }, 0) 
-//  }
+let summation = (arr) => {
+  return total =  arr.reduce((acc, next) => {
+     return acc + next
+  }, 0) 
+ }
 
 // function forEach(arr, cb) {
 //   // iterate over arr and pass its values to cb one by one
@@ -39,15 +30,15 @@ const myForEach = (arr) => arr.forEach( elem => { cb(elem) })
 
 // const displayArr = (val) => val;
 
-function map(arr, cb) {
+// function map(arr, cb) {
   // create a new array
   // iterate over each value in arr, pass it to cb, then place the value returned from cb into the new arr
   // the new array should be the same length as the array argument
 
-  return cb(arr)
-}
+//   return cb(arr)
+// }
 
-// const map = (arr, cb) => cb(arr)
+const map = (arr, cb) => cb(arr)
 
 const getNewArr = (arr) => {
   return newArr = arr.map( elem => elem ) 
@@ -86,141 +77,140 @@ const getNewArr = (arr) => {
 
     // 2. Give us an array of the inventors first and last names
     // Array.prototype.sort()
-    let sortFirstName = (arr) => {clear()
-      return newArr = arr.sort((a,b) => {
-              return (a.first < b.first) ? -1 : 0                        
-      }).map((names) => names.first)
-   }
-   let sortLastName = (arr) => {clear()
-    return newArr = arr.sort((a,b) => {
-            return (a.last < b.last) ? -1 : 0                        
-    }).map((names) => names.last)
- }
+      let sortFirstName = (arr) => {clear()
+        return newArr = arr.sort((a,b) => {
+                return (a.first < b.first) ? -1 : 0                        
+        }).map((names) => names.first)
+      }
+      let sortLastName = (arr) => {clear()
+        return newArr = arr.sort((a,b) => {
+                return (a.last < b.last) ? -1 : 0                        
+        }).map((names) => names.last)
+      }
     // 3. Sort the inventors by birthdate, oldest to youngest
-    let sortbirthdate = (arr) => {
-      return newArr = arr.sort((a,b) => {
-              return (a.year < b.year) ? -1 : 0                        
-      }).map((data) => {
-            return `FullName:${data.first} ${data.last} Birthdate: ${data.year}`
-      })
-   }
+      let sortbirthdate = (arr) => {
+        return newArr = arr.sort((a,b) => {
+                return (a.year < b.year) ? -1 : 0                        
+        }).map((data) => {
+              return `FullName:${data.first} ${data.last} Birthdate: ${data.year}`
+        })
+      }
     // Array.prototype.reduce()
     // 4. How many years did all the inventors live all together?
-    let computeForFullAge = (arr) => {
-      return newArr = arr.reduce((acc, next) => {
-              let temp = next.passed - next.year 
-              console.log('Full age:'+  temp);
-         })
-     }
+      let computeForFullAge = (arr) => {
+        return newArr = arr.reduce((acc, next) => {
+                let temp = next.passed - next.year 
+                console.log('Full age:'+  temp);
+          })
+      }
     // 5. Sort the inventors by years lived
-    let computeFullAge = (arr) => {
-      return newArr = arr.sort((a,b) => {
-           let temp = a.passed - a.year;
-           let temp2 = b.passed - b.year;
-           if(temp < temp2){
-               return -1;
-           }           
-      }).reduce((acc, next) => {
-              let data = next.passed - next.year;
-              console.log(`First Name: ${next.first} YearsLive: ${data}`)
-      }, {})
-   }
+      let computeFullAge = (arr) => {
+        return newArr = arr.sort((a,b) => {
+            let temp = a.passed - a.year;
+            let temp2 = b.passed - b.year;
+            if(temp < temp2){
+                return -1;
+            }           
+        }).reduce((acc, next) => {
+                let data = next.passed - next.year;
+                console.log(`First Name: ${next.first} YearsLive: ${data}`)
+        }, {})
+      }
 
-
-    let groupByYearsLive = (arr, props) => {
-      return arr.reduce(function (acc, next) {
-            let key = next[props]
-            if (!acc[next]) {
-              acc[key] = []
-            }
-            let getAge = next.passed - next.year
-            acc[key].push(next.first, getAge )
-            return acc
-          }, {})
+      let groupByYearsLive = (arr, props) => {
+        return arr.reduce(function (acc, next) {
+              let key = next[props]
+              if (!acc[next]) {
+                acc[key] = []
+              }
+              let getAge = next.passed - next.year
+              acc[key].push(next.first, getAge )
+              return acc
+            }, {})
       }
     
     // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
     // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
-   let Paris = [
-      "Thiers wall"
-     ,"Wall of Charles V"
-     ,"Wall of Philip II Augustus"
-     ,"City gates of Paris"
-     ,"Haussmann's renovation of Paris"
-     ,"Boulevards of the Marshals"
-     ,"Boulevard Auguste-Blanqui"
-     ,"Boulevard Barbès"
-     ,"Boulevard Beaumarchais"
-     ,"Boulevard de l'Amiral-Bruix"
-     ,"Boulevard Mortier"
-     ,"Boulevard Poniatowski"
-     ,"Boulevard Soult"
-     ,"Boulevard des Capucines"
-     ,"Boulevard de la Chapelle"
-     ,"Boulevard de Clichy"
-     ,"Boulevard du Crime"
-     ,"Boulevard du Général-d'Armée-Jean-Simon"
-     ,"Boulevard Haussmann"
-     ,"Boulevard de lHôpital"
-     ,"Boulevard des Italiens"
-     ,"Boulevard Lefebvre"
-     ,"Boulevard de la Madeleine"
-     ,"Boulevard de Magenta"
-     ,"Boulevard Marguerite-de-Rochechouart"
-     ,"Boulevard Montmartre"
-     ,"Boulevard du Montparnasse"
-     ,"Boulevard Raspail"
-     ,"Boulevard Richard-Lenoir"
-     ,"Boulevard Saint-Germain"
-     ,"Boulevard Saint-Michel"
-     ,"Boulevard de Sébastopol"
-     ,"Boulevard de Strasbourg"
-     ,"Boulevard du Temple"
-     ,"Boulevard Voltaire"
-     ,"Boulevard de la Zone"]
-    let sortBlvdStrings = (arr) => {
-            return newArr = arr.filter((elem) => elem.includes('de'))
-    }
+      let Paris = [
+          "Thiers wall"
+        ,"Wall of Charles V"
+        ,"Wall of Philip II Augustus"
+        ,"City gates of Paris"
+        ,"Haussmann's renovation of Paris"
+        ,"Boulevards of the Marshals"
+        ,"Boulevard Auguste-Blanqui"
+        ,"Boulevard Barbès"
+        ,"Boulevard Beaumarchais"
+        ,"Boulevard de l'Amiral-Bruix"
+        ,"Boulevard Mortier"
+        ,"Boulevard Poniatowski"
+        ,"Boulevard Soult"
+        ,"Boulevard des Capucines"
+        ,"Boulevard de la Chapelle"
+        ,"Boulevard de Clichy"
+        ,"Boulevard du Crime"
+        ,"Boulevard du Général-d'Armée-Jean-Simon"
+        ,"Boulevard Haussmann"
+        ,"Boulevard de lHôpital"
+        ,"Boulevard des Italiens"
+        ,"Boulevard Lefebvre"
+        ,"Boulevard de la Madeleine"
+        ,"Boulevard de Magenta"
+        ,"Boulevard Marguerite-de-Rochechouart"
+        ,"Boulevard Montmartre"
+        ,"Boulevard du Montparnasse"
+        ,"Boulevard Raspail"
+        ,"Boulevard Richard-Lenoir"
+        ,"Boulevard Saint-Germain"
+        ,"Boulevard Saint-Michel"
+        ,"Boulevard de Sébastopol"
+        ,"Boulevard de Strasbourg"
+        ,"Boulevard du Temple"
+        ,"Boulevard Voltaire"
+        ,"Boulevard de la Zone"]
+
+        let sortBlvdStrings = (arr) => {
+                return newArr = arr.filter((elem) => elem.includes('de'))
+        }
 
       // 7. sort Exercise
      // Sort the people alphabetically by last name
-     let sortLastName = (arr) => {
-      return newArr =  arr.map((data) => {
-                  return  data.split(",")      
-        }).sort((a,b) => {
-            if(a[1] < b[1]){
-                return -1;
-            }    
-        })
-
-     }
-  
+        let sortLastName = (arr) => {
+          return newArr =  arr.map((data) => {
+                      return  data.split(",")      
+            }).sort((a,b) => {
+                if(a[1] < b[1]){
+                    return -1;
+                }    
+            })
+        }
+      
      // 8. Reduce Exercise
     // Sum up the instances of each of these
-    const data = ['car', 'car', 
-                'truck', 'truck', 'bike', 'walk', 
-                'car', 'van', 'bike', 'walk', 'car',
-                'van', 'car', 'truck' ];
-   
-        // let countNumInstance = (arr) => {
-        //   return arr.reduce(function(acc, curr){
-        //           acc[curr] = (acc[curr] || 0) +1
-        //           return acc;
-        //       },{})
-        // }
+        const data = ['car', 'car', 
+                    'truck', 'truck', 'bike', 'walk', 
+                    'car', 'van', 'bike', 'walk', 'car',
+                    'van', 'car', 'truck' ];
+    
+          // let countNumInstance = (arr) => {
+          //   return arr.reduce(function(acc, curr){
+          //           acc[curr] = (acc[curr] || 0) +1
+          //           return acc;
+          //       },{})
+          // }
 
-    let countNumInstance = (arr) => {
-       return arr.reduce( function(acc, cur) {
-              if(cur in acc){
-                 acc[cur]++;
-              }else {
-                  acc[cur] =1;    
-              }
-            ;
-         return acc; 
-     }, {})
-   }
- 
+        let countNumInstance = (arr) => {
+          return arr.reduce( function(acc, cur) {
+                  if(cur in acc){
+                    acc[cur]++;
+                  }else {
+                      acc[cur] =1;    
+                  }
+                ;
+              return acc; 
+          }, {})
+        }
+    
 
 
 // Do not modify code below this line.
