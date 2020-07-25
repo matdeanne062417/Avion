@@ -12,11 +12,7 @@ const invokeCallback = (cb) => cb();
 const sumArray = (numbers, cb) => cb(numbers);
 
 
-let summation = (arr) => {
-  return total =  arr.reduce((acc, next) => {
-     return acc + next
-  }, 0) 
- }
+let summation = (arr) => { return total =  arr.reduce((acc, next) => { return  acc + next})}
 
 // function forEach(arr, cb) {
 //   // iterate over arr and pass its values to cb one by one
@@ -40,9 +36,7 @@ const myForEach = (arr) => arr.forEach( elem => { cb(elem) })
 
 const map = (arr, cb) => cb(arr)
 
-const getNewArr = (arr) => {
-  return newArr = arr.map( elem => elem ) 
-}
+const getNewArr = (arr) => { return newArr = arr.map( elem => elem ) }
 
 
 // ## Array Cardio Day 1
@@ -104,7 +98,7 @@ const getNewArr = (arr) => {
           })
       }
     // 5. Sort the inventors by years lived
-      let computeFullAge = (arr) => {
+      let sortFullAge = (arr) => {
         return newArr = arr.sort((a,b) => {
             let temp = a.passed - a.year;
             let temp2 = b.passed - b.year;
@@ -117,7 +111,7 @@ const getNewArr = (arr) => {
         }, {})
       }
 
-      let groupByYearsLive = (arr, props) => {
+      let sortByYearsLive = (arr, props) => {
         return arr.reduce(function (acc, next) {
               let key = next[props]
               if (!acc[next]) {
@@ -169,9 +163,7 @@ const getNewArr = (arr) => {
         ,"Boulevard Voltaire"
         ,"Boulevard de la Zone"]
 
-        let sortBlvdStrings = (arr) => {
-                return newArr = arr.filter((elem) => elem.includes('de'))
-        }
+        let sortBlvdStrings = (arr) => { return newArr = arr.filter((elem) => elem.includes('de'))}
 
       // 7. sort Exercise
      // Sort the people alphabetically by last name
@@ -192,21 +184,20 @@ const getNewArr = (arr) => {
                     'car', 'van', 'bike', 'walk', 'car',
                     'van', 'car', 'truck' ];
     
-          // let countNumInstance = (arr) => {
-          //   return arr.reduce(function(acc, curr){
-          //           acc[curr] = (acc[curr] || 0) +1
-          //           return acc;
-          //       },{})
-          // }
+        let countNumInstance1 = (arr) => {
+          return arr.reduce(function(acc, curr){
+                  acc[curr] = (acc[curr] || 0) +1
+                  return acc;
+              },{})
+        }
 
-        let countNumInstance = (arr) => {
+        let countNumInstance2 = (arr) => {
           return arr.reduce( function(acc, cur) {
                   if(cur in acc){
                     acc[cur]++;
                   }else {
                       acc[cur] =1;    
-                  }
-                ;
+                  };
               return acc; 
           }, {})
         }
