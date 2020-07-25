@@ -11,8 +11,6 @@ function counter(num) {
   }
 }
 
-
-
   // use closure to create a cache for the cb function
   // the function that you return should accept a single argument and invoke cb with that argument
   // when the function you return is invoked with an argument it should save that argument and its result
@@ -26,15 +24,14 @@ function counter(num) {
   function cacheFunction(cb) {
     let arr = [];
     return (num) => {
-          if(arr.includes(num)){
-            return num;
-          } else{
-            arr.push(num)
-            return cb(num)  
-          }
+        let temp = cb(num)
+        if(arr.indexOf(temp) !== -1){
+          return arr[arr.indexOf(temp)];
+        } 
+        arr.push(temp) ;
+       return temp
   }
 }
-
 const getProduct = (x) => x*=x;
 
 // Do not modify code below this line.
