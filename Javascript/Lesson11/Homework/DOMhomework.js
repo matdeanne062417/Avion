@@ -5,11 +5,12 @@ var toDoControllers = (function(){
           'complete' which should be set to false. Hint: use the 'this' keyword in the constructor function.
 */
 
-      let ToDos = function(id, description){
+      let ToDos = function(id, description, isCompleted = false){
         //TODO:
         //add isCompleted to check if task is complete
           this.id = id;
           this.description = description;
+          this.isCompleted = false;
 
       }
       // STEP 0: Create an empty array called 'toDoItems'.
@@ -43,6 +44,21 @@ var toDoControllers = (function(){
           },
           displayData: function(){
               return Data.toDos;
+          },
+          isCompleted(id){
+            let task = id.split('-')
+            let taskid = parseInt(task[1])
+            let index = Data.toDos[taskid]
+            //console.log(index, taskid)\
+
+            if(!index.isCompleted){
+              console.log('task completed')
+               return index.isCompleted = true ; 
+            } else {
+              return index.isCompleted = false;
+            }
+           
+
           }
       }
 })();
@@ -110,6 +126,9 @@ var mainController = (function(toDoCtrls, UICtrls){
     UICtrls.getDOMStrings().toDoLists.addEventListener('click', function(e){
       const taskId =  e.target.closest('.task').id;
       if(taskId){
+          // add boolean value 
+          toDoCtrls.isCompleted(taskId)
+          //render UI
           UICtrls.completeToDo(taskId);
       } 
     })
