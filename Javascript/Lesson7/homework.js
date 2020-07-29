@@ -14,6 +14,7 @@ const sumArray = (numbers, cb) => cb(numbers);
 
 let summation = (arr) => { return total =  arr.reduce((acc, next) => { return  acc + next})}
 
+
 // function forEach(arr, cb) {
 //   // iterate over arr and pass its values to cb one by one
 //   // hint: you will be invoking cb multiple times (once for each value in the array)
@@ -22,9 +23,9 @@ let summation = (arr) => { return total =  arr.reduce((acc, next) => { return  a
 //   })
 // }
 
-const myForEach = (arr) => arr.forEach( elem => { cb(elem) }) 
+const myForEach = (arr, cb) => arr.forEach( elem => { cb(elem) }  ) 
 
-// const displayArr = (val) => val;
+const displayArray = (val) => console.log(val);
 
 // function map(arr, cb) {
   // create a new array
@@ -71,40 +72,40 @@ const getNewArr = (arr) => { return newArr = arr.map( elem => elem ) }
 
     // 2. Give us an array of the inventors first and last names
     // Array.prototype.sort()
-      let sortFirstName = (arr) => {clear()
+      let sortFirstName4 = (arr) => {
         return newArr = arr.sort((a,b) => {
-                return (a.first < b.first) ? -1 : 0                        
+                return (a.first < b.first) ? -1 : 1                        
         }).map((names) => names.first)
       }
-      let sortLastName = (arr) => {clear()
+      let sortLastName = (arr) => {
         return newArr = arr.sort((a,b) => {
-                return (a.last < b.last) ? -1 : 0                        
+                return (a.last < b.last) ? -1 : 1                        
         }).map((names) => names.last)
       }
     // 3. Sort the inventors by birthdate, oldest to youngest
       let sortbirthdate = (arr) => {
         return newArr = arr.sort((a,b) => {
-                return (a.year < b.year) ? -1 : 0                        
+                return (a.year < b.year) ? -1 : 1
+                                       
         }).map((data) => {
               return `FullName:${data.first} ${data.last} Birthdate: ${data.year}`
         })
       }
     // Array.prototype.reduce()
     // 4. How many years did all the inventors live all together?
-      let computeForFullAge = (arr) => {
+      let computeForFullAge2 = (arr) => {
         return newArr = arr.reduce((acc, next) => {
                 let temp = next.passed - next.year 
                 console.log('Full age:'+  temp);
-          })
+          }, 0)
       }
     // 5. Sort the inventors by years lived
       let sortFullAge = (arr) => {
         return newArr = arr.sort((a,b) => {
             let temp = a.passed - a.year;
             let temp2 = b.passed - b.year;
-            if(temp < temp2){
-                return -1;
-            }           
+            
+            return (temp < temp2) ? -1 : 1       
         }).reduce((acc, next) => {
                 let data = next.passed - next.year;
                 console.log(`First Name: ${next.first} YearsLive: ${data}`)
@@ -167,9 +168,11 @@ const getNewArr = (arr) => { return newArr = arr.map( elem => elem ) }
 
       // 7. sort Exercise
      // Sort the people alphabetically by last name
-        let sortLastName = (arr) => {
+        let sortLastNamenew = (arr) => {
           return newArr =  arr.map((data) => {
-                      return  data.split(",")      
+                    let item =  data.split(",")
+                    console.log(item)
+                      return item;      
             }).sort((a,b) => {
                 if(a[1] < b[1]){
                     return -1;

@@ -19,7 +19,8 @@ function counter(num) {
   // example:
   // cb -> function(x) { return x * x; }
   // if the function you return is invoked with 5 it would pass 5 to cb(5) and return 25
-  // if the function you return is invoked again with 5 it will look on an object in the closure scope
+  // if the function you return is invoked again with 5 it will look on an object in 
+  //the closure scope
   // and return 25 directly and will not invoke cb again
   function cacheFunction(cb) {
     let arr = [];
