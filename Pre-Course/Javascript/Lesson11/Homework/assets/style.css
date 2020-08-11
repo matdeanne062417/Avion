@@ -1,0 +1,187 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat|Ubuntu&display=swap);
+
+body {
+  background:  #ecf0f1;
+  font-family: 'Montserrat', sans-serif;
+  margin-top: 3em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+
+#header {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #428fbb;
+  height: 56px;
+  /* padding-left: 15px; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#header span {
+  font-size: 24px;
+  color: white;
+  padding-right: 15px;
+}
+
+#header a {
+  padding-left: 15px;
+}
+
+img {
+  height:3em;
+  width:9em;
+}
+
+
+/* #container {
+  background-color: #428fbb;
+  box-shadow: 2px 2px 5px#000;
+  width: 50%;
+  min-width: 700px;
+  border-radius: 5px;
+} */
+
+/* #inputContainer {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  margin-bottom: 25px;
+} */
+
+/* #toDoInput {
+  outline: none;
+  width: 75%;
+  padding-left: 10px;
+  font-size: 20px;
+  border: none;
+  border-radius: 4px;
+}
+
+#addButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  margin-left: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  height: 35px;
+  background: #0160A2;
+  color: #FFF;
+  font-size: 20px;
+}
+
+#toDoContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  cursor: pointer;
+}
+
+.toDoShell {
+  width: 650px;
+  min-height: 50px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: #fff;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  font-size: 20px;
+  padding: 5px;
+}
+
+.toDoShell span {
+  width: 90%;
+}
+.completeText {
+  color: lightgrey;
+  text-decoration: line-through;
+}
+
+.completeCheckbox {
+  transform: scale(1.8);
+} */
+
+
+/* customization  start*/
+header h1{
+  font-size: 64px;
+  font-weight: 300;
+  margin: 80px 0 25px;
+  color: #2c3e50;
+  text-align:  center;
+}
+
+header h1 span{
+  font-weight: 700;
+}
+
+header h2{
+  color: #bdc3c7;
+  font-weight: 300;
+}
+
+#toDoInput{
+  width: 25em;
+  height: 60px;
+  background: none;
+  border: none;
+  border-bottom: 1px solid #34495e;
+  outline: none;
+  font-size: 28px;
+  font-family:  'Ubuntu', 'san-serif';
+  padding: 20px;
+  color: #34495e;
+  margin-top: 1.5em;
+  margin-left: 3em;
+}
+
+.list{
+  width: 800px;
+  margin: 1em auto;
+}
+
+.task{
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  font-size: 20px;
+  padding: 0 20px;
+  color: #34495e;
+  transition: all .3s ease;
+}
+
+.task:hover{
+  background: rgba(0, 0, 0, .02);
+  cursor: pointer;
+}
+
+.task:hover span{
+  opacity: 1;
+}
+
+li span{
+  float: right;
+  color: #c0392b;
+  transition: all .3s ease;
+  opacity: 0;
+}
+
+li span:hover{
+  color: #e74c3c;
+}
+
+
+.done{
+  text-decoration: line-through;
+  color: #bdc3c7;
+}
